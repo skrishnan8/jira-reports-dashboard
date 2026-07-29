@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Reports Issue Tracker</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="page">
+    <header class="topbar">
+      <div class="title-block">
+        <h1>Reports Issue Tracker</h1>
+        <p class="subtitle">All issues for a label, with status and latest comment, at a glance.</p>
+      </div>
+      <div class="controls">
+        <input id="label-input" type="text" placeholder="e.g. V3_reports_issue2026" />
+        <button id="load-btn">Load</button>
+        <button id="refresh-btn" title="Refresh current view">Refresh</button>
+      </div>
+    </header>
+
+    <section id="status-bar" class="status-bar"></section>
+
+    <section id="summary" class="summary"></section>
+
+    <section id="content">
+      <div id="empty-state" class="empty-state">
+        <p>Enter a label above and click <strong>Load</strong> to see its issues.</p>
+      </div>
+      <table id="issues-table" class="issues-table hidden">
+        <thead>
+          <tr>
+            <th>Key</th>
+            <th>Summary</th>
+            <th>Status</th>
+            <th>Assignee</th>
+            <th>Reporter</th>
+            <th>Updated</th>
+            <th>Latest comment</th>
+          </tr>
+        </thead>
+        <tbody id="issues-body"></tbody>
+      </table>
+    </section>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

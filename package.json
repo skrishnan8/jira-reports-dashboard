@@ -1,0 +1,16 @@
+{
+  "name": "jira-reports-dashboard",
+  "version": "1.0.0",
+  "description": "Local browser dashboard that shows the status and latest comment for every Jira issue under a given label, so you don't have to open tickets one by one.",
+  "main": "server.js",
+  "type": "commonjs",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "undici": "^6.19.8"
+  }
+}
