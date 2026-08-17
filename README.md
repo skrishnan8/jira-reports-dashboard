@@ -32,7 +32,7 @@ cp .env.example .env
 Edit `.env` and fill in:
 
 **For Jira Cloud:**
-- `JIRA_BASE_URL` — e.g. `https://jira.cloud.intuit.com`
+- `JIRA_BASE_URL` — use the `*.atlassian.net` URL for API calls (e.g. `https://intuit-prod.atlassian.net`), **not** the custom browser domain (e.g. `jira.cloud.intuit.com`). Scoped API tokens return 401 against custom-domain URLs.
 - `JIRA_EMAIL` — your Jira account email
 - `JIRA_API_TOKEN` — the API token from step 1
 - `JIRA_DEFAULT_LABEL` — defaults to `V3_reports_issue2026`, change if needed
@@ -69,6 +69,7 @@ Then open **http://localhost:4321** in your browser.
   - For Jira Cloud: regenerate API token at https://id.atlassian.com/manage-profile/security/api-tokens
   - For Jira Server/Data Center: regenerate PAT in Jira
   - Update `.env` and restart (`npm start`)
+- **401 with valid credentials on a custom Jira domain** — set `JIRA_BASE_URL` to your site's `*.atlassian.net` URL (find it via `https://<your-domain>/_edge/tenant_info` or in Jira **Settings → System → General configuration**). Scoped API tokens do not authenticate against custom-domain URLs like `jira.cloud.intuit.com`.
 - **TLS / self-signed certificate errors** — set `JIRA_ALLOW_INSECURE_TLS=true`
   in `.env` (only do this on a trusted corporate network).
 - **No issues showing up** — double check the exact label spelling/casing used
